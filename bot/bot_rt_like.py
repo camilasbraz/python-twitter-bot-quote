@@ -1,17 +1,7 @@
-"""
-A Twitter bot written in Python using Tweepy. 
-It will like and/or retweet tweets that contain single or multiple keywords and hashtags.
-"""
-
-# Built-in/Generic Imports
 import os
 import logging
 from time import sleep
-
-# Library Imports
 import tweepy
-
-# Own modules
 from config import *
 
 
@@ -24,22 +14,13 @@ def initialize_api():
 
 def get_tweets(api):
     # Exclude retweets from search to avoid repeats
-    if run_continuously:
-        tweets = tweepy.Cursor(api.search_tweets,
-                        q=search_keywords + " -filter:retweets", 
-                        count=100,
-                        result_type=result_type,
-                        monitor_rate_limit=True, 
-                        wait_on_rate_limit=True,
-                        lang="pt").items()
-    else:
-        tweets = tweepy.Cursor(api.search_tweets,
-                        q=search_keywords + " -filter:retweets",
-                        count=100,
-                        result_type=result_type,
-                        monitor_rate_limit=True, 
-                        wait_on_rate_limit=True,
-                        lang="pt").items(number_of_tweets)
+    tweets = tweepy.Cursor(api.search_tweets,
+                    q=search_keywords + " -filter:retweets", 
+                    count=100,
+                    result_type=result_type,
+                    # monitor_rate_limit=True, 
+                    # wait_on_rate_limit=True,
+                    lang="pt").items()
     return tweets
 
 def process_tweets(api, tweets):
