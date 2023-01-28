@@ -14,14 +14,24 @@ def initialize_api():
 
 def get_tweets(api):
     # Exclude retweets from search to avoid repeats
-    tweets = tweepy.Cursor(api.search_tweets,
-                    q=search_keywords + " -filter:retweets", 
-                    count=100,
-                    result_type=result_type,
-                    # monitor_rate_limit=True, 
-                    # wait_on_rate_limit=True,
-                    lang="pt").items()
+    if run_continuously:
+        tweets = tweepy.Cursor(api.search_tweets,
+                        q=search_keywords + " -filter:retweets", 
+                        count=100,
+                        result_type=result_type,
+                        monitor_rate_limit=True, 
+                        wait_on_rate_limit=True,
+                        lang="pt").items()
+    else:
+        tweets = tweepy.Cursor(api.search_tweets,
+                        q=search_keywords + " -filter:retweets",
+                        count=100,
+                        result_type=result_type,
+                        monitor_rate_limit=True, 
+                        wait_on_rate_limit=True,
+                        lang="pt").items(number_of_tweets)
     return tweets
+
 
 def process_tweets(api, tweets):
     for tweet in tweets:

@@ -8,7 +8,8 @@ load_dotenv()
 logging.basicConfig(format='%(levelname)s [%(asctime)s] %(message)s', datefmt='%m/%d/%Y %r', level=logging.INFO)
 logger = logging.getLogger()
 
-search_keywords = "Felipe Amorin"
+search_keywords = "Felipe Amorin OR felipe amorin"
+# search_keywords = "Python OR bot"
 
 # Time to wait between processing a request in seconds 
 # Information about TwitterAPI limits here: https://developer.twitter.com/en/docs/twitter-api/v1/rate-limits
