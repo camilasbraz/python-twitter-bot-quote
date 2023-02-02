@@ -1,2 +1,8 @@
 venv
+<<<<<<< HEAD
 .env
+__pycache__
+sources.txt
+=======
+.env
+>>>>>>> 8ee618dd05ae6cdb23dc8c91e0f7684263819973
