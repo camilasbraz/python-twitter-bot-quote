@@ -1,0 +1,3 @@
+https://realpython.com/twitter-bot-python-tweepy/#twitter-api
+https://auth0.com/blog/how-to-make-a-twitter-bot-in-python-using-tweepy/#Introduction
+https://github.com/anniedotexe/Twitter-Retweet-Bot/blob/master/twitter-bot.py

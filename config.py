@@ -8,11 +8,12 @@ load_dotenv()
 logging.basicConfig(format='%(levelname)s [%(asctime)s] %(message)s', datefmt='%m/%d/%Y %r', level=logging.INFO)
 logger = logging.getLogger()
 
-search_keywords = "Felipe Amorin"
+search_keywords = "Felipe Amorin OR felipe amorin"
+# search_keywords = "Python OR bot"
 
 # Time to wait between processing a request in seconds 
 # Information about TwitterAPI limits here: https://developer.twitter.com/en/docs/twitter-api/v1/rate-limits
-delay = 100
+delay = 10
 
 # Specify what type of search results you want to get
 # 'recent', 'popular', or 'mixed'
@@ -28,6 +29,8 @@ run_continuously = True
 retweet_tweets = True
 like_tweets = True
 
+# Time in seconds to wait to bot run 
+time_to_wait = 10
 
 def CreateApi():
     consumer_key = os.getenv("CONSUMER_KEY")
@@ -43,8 +46,5 @@ def CreateApi():
     except Exception as e:
         logger.error("Error creating API", exc_info=True)
         raise e
-    logger.info("API created")
+    logger.info(f"API created! Connection to @{api.get_user(screen_name='felipeAmorinBot').name}")
     return api
-
-
-
