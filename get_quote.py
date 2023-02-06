@@ -8,4 +8,6 @@ def get_quote():
         print("Error while calling API...")
 
     res = json.loads(response.text)
-    return res['content'] + "-" + res['author']
+    quote = '"' + res['content'] + '"' + '\n' + res['author']
+    # print(quote)
+    return quote

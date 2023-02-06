@@ -7,7 +7,7 @@ from config import *
 import traceback
 
 
-#from schedule import *
+from schedule import *
 from get_quote import get_quote
 from get_pic import get_pic
 
@@ -17,7 +17,7 @@ today = date.today()
 # dd/mm/YY
 current_date = today.strftime("%d/%m/%Y")
 
-#schedule()
+schedule()
 
 
 logging.basicConfig(format='%(levelname)s [%(asctime)s] %(message)s', datefmt='%m/%d/%Y %r', level=logging.INFO)
@@ -32,7 +32,7 @@ def tweetQuote(api):
         quote = get_quote()
         get_pic(quote)
 
-        media = api.media_upload("img_quote.png")
+        media = api.media_upload("result.jpg")
 
         api.update_status('Quote of the day ' + current_date,
                             media_ids=[media.media_id])
