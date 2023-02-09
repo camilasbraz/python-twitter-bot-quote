@@ -17,7 +17,7 @@ today = date.today()
 # dd/mm/YY
 current_date = today.strftime("%d/%m/%Y")
 
-schedule()
+#schedule()
 
 
 logging.basicConfig(format='%(levelname)s [%(asctime)s] %(message)s', datefmt='%m/%d/%Y %r', level=logging.INFO)
